@@ -147,7 +147,7 @@ void SlamDataPub::Run() {
       nh.advertise<sensor_msgs::PointCloud2>("point_cloud_ref", 1);
 
   image_transport::ImageTransport it_(nh);
-  DrawFrame_pub_ = it_.advertise("/frame_now", 1);
+  DrawFrame_pub_ = it_.advertise("frame_now", 1);
 
   thread threadCamPosePub(&SlamDataPub::TrackingDataPub, this);
   thread threadPointCloudPub(&SlamDataPub::PointCloudPub, this);
